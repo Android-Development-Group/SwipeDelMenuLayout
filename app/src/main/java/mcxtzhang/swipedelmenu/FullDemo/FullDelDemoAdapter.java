@@ -7,10 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.mcxtzhang.swipemenulib.SwipeMenuLayout;
 
 import java.util.List;
 
@@ -42,7 +41,7 @@ public class FullDelDemoAdapter extends RecyclerView.Adapter<FullDelDemoAdapter.
 
     @Override
     public void onBindViewHolder(final FullDelDemoVH holder, final int position) {
-        ((SwipeMenuLayout) holder.itemView).setIos(false).setLeftSwipe(position % 2 == 0 ? true : false);//这句话关掉IOS阻塞式交互效果 并依次打开左滑右滑
+//        ((SwipeMenuLayout) holder.itemView).setIos(false).setLeftSwipe(position % 2 == 0 ? true : false);//这句话关掉IOS阻塞式交互效果 并依次打开左滑右滑
 
         holder.content.setText(mDatas.get(position).name + (position % 2 == 0 ? "我右白虎" : "我左青龙"));
 
@@ -70,7 +69,7 @@ public class FullDelDemoAdapter extends RecyclerView.Adapter<FullDelDemoAdapter.
             }
         });
         //注意事项，设置item点击，不能对整个holder.itemView设置咯，只能对第一个子View，即原来的content设置，这算是局限性吧。
-        (holder.content).setOnClickListener(new View.OnClickListener() {
+        (holder.ll_main).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(mContext, "onClick:" + mDatas.get(holder.getAdapterPosition()).name, Toast.LENGTH_SHORT).show();
@@ -114,6 +113,7 @@ public class FullDelDemoAdapter extends RecyclerView.Adapter<FullDelDemoAdapter.
     }
 
     class FullDelDemoVH extends RecyclerView.ViewHolder {
+        LinearLayout ll_main;
         TextView content;
         Button btnDelete;
         Button btnUnRead;
@@ -121,6 +121,7 @@ public class FullDelDemoAdapter extends RecyclerView.Adapter<FullDelDemoAdapter.
 
         public FullDelDemoVH(View itemView) {
             super(itemView);
+            ll_main = (LinearLayout) itemView.findViewById(R.id.ll_main);
             content = (TextView) itemView.findViewById(R.id.content);
             btnDelete = (Button) itemView.findViewById(R.id.btnDelete);
             btnUnRead = (Button) itemView.findViewById(R.id.btnUnRead);
