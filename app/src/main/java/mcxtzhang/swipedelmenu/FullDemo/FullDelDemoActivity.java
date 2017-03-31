@@ -37,8 +37,10 @@ public class FullDelDemoActivity extends Activity {
         setContentView(R.layout.activity_full_del_demo);
         mRv = (RecyclerView) findViewById(R.id.rv);
 
+        boolean[] tags = getIntent().getExtras().getBooleanArray("tag");
+
         initDatas();
-        mAdapter = new FullDelDemoAdapter(this, mDatas);
+        mAdapter = new FullDelDemoAdapter(this, mDatas, tags);
         mAdapter.setOnDelListener(new FullDelDemoAdapter.onSwipeListener() {
             @Override
             public void onDel(int pos) {

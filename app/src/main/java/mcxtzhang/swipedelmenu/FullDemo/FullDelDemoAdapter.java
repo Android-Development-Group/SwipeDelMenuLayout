@@ -11,6 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mcxtzhang.swipemenulib.SwipeMenuLayout;
+
 import java.util.List;
 
 import mcxtzhang.listswipemenudemo.R;
@@ -27,11 +29,13 @@ public class FullDelDemoAdapter extends RecyclerView.Adapter<FullDelDemoAdapter.
     private Context mContext;
     private LayoutInflater mInfalter;
     private List<SwipeBean> mDatas;
+    private boolean[] tags;
 
-    public FullDelDemoAdapter(Context context, List<SwipeBean> mDatas) {
+    public FullDelDemoAdapter(Context context, List<SwipeBean> mDatas, boolean[] tags) {
         mContext = context;
         mInfalter = LayoutInflater.from(context);
         this.mDatas = mDatas;
+        this.tags = tags;
     }
 
     @Override
@@ -42,6 +46,8 @@ public class FullDelDemoAdapter extends RecyclerView.Adapter<FullDelDemoAdapter.
     @Override
     public void onBindViewHolder(final FullDelDemoVH holder, final int position) {
 //        ((SwipeMenuLayout) holder.itemView).setIos(false).setLeftSwipe(position % 2 == 0 ? true : false);//这句话关掉IOS阻塞式交互效果 并依次打开左滑右滑
+        if (tags != null)
+            ((SwipeMenuLayout) holder.itemView).setIos(tags[0]).setLeftSwipe(tags[1]).setSwipeEnable(tags[2]);
 
         holder.content.setText(mDatas.get(position).name + (position % 2 == 0 ? "我右白虎" : "我左青龙"));
 
@@ -80,7 +86,7 @@ public class FullDelDemoAdapter extends RecyclerView.Adapter<FullDelDemoAdapter.
         holder.btnTop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (null!=mOnSwipeListener){
+                if (null != mOnSwipeListener) {
                     mOnSwipeListener.onTop(holder.getAdapterPosition());
                 }
 

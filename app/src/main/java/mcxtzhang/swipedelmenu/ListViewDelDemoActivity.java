@@ -26,6 +26,9 @@ public class ListViewDelDemoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mLv = (ListView) findViewById(R.id.test);
 
+        final boolean[] tags = getIntent().getExtras().getBooleanArray("tag");
+//        final boolean[] tags = null;
+
         initDatas();
         mLv.setAdapter(new CommonAdapter<SwipeBean>(this, mDatas, R.layout./*item_swipe_menu*/item_cst_swipe) {
             @Override
@@ -38,6 +41,13 @@ public class ListViewDelDemoActivity extends AppCompatActivity {
                         Toast.makeText(ListViewDelDemoActivity.this, "position:" + position, Toast.LENGTH_SHORT).show();
                     }
                 });
+
+                SwipeMenuLayout view = holder.getView(R.id.sml_main);
+                if (tags != null) {
+                    view.setIos(tags[0]);
+                    view.setLeftSwipe(tags[1]);
+                    view.setSwipeEnable(tags[2]);
+                }
 
                 holder.setOnClickListener(R.id.btnDelete, new View.OnClickListener() {
                     @Override

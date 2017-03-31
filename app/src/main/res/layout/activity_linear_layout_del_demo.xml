@@ -9,6 +9,7 @@
     tools:context="mcxtzhang.swipedelmenu.LinearLayoutDelDemoActivity">
 
     <com.mcxtzhang.swipemenulib.SwipeMenuLayout
+        android:id="@+id/sml_0"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true">
@@ -73,6 +74,7 @@
 
 
     <com.mcxtzhang.swipemenulib.SwipeMenuLayout
+        android:id="@+id/sml_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true">

@@ -14,17 +14,91 @@
 
     <Button
         android:id="@+id/rv"
-        android:text="完整的RecyclerViewDemo"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="完整的RecyclerViewDemo"/>
+
     <Button
         android:id="@+id/lv"
-        android:text="ListView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="ListView"/>
+
     <Button
         android:id="@+id/ll"
-        android:text="线性布局LinearLayout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="线性布局LinearLayout"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:background="#000"
+        android:orientation="horizontal"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_ios"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="ios"
+            android:textAllCaps="false"/>
+
+        <TextView
+            android:id="@+id/tv_ios"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text=""/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_leftSwipe"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="leftSwipe"
+            android:textAllCaps="false"/>
+
+        <TextView
+            android:id="@+id/tv_leftSwipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text=""/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_swipeEnable"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="swipeEnable"
+            android:textAllCaps="false"/>
+
+        <TextView
+            android:id="@+id/tv_swipeEnable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text=""/>
+
+    </LinearLayout>
+
 </LinearLayout>

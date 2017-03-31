@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.mcxtzhang.swipemenulib.SwipeMenuLayout;
+
 import mcxtzhang.listswipemenudemo.R;
 
 public class LinearLayoutDelDemoActivity extends AppCompatActivity {
@@ -14,7 +16,22 @@ public class LinearLayoutDelDemoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_linear_layout_del_demo);
+
+        boolean[] tags = getIntent().getExtras().getBooleanArray("tag");
+
         LinearLayout llContent = (LinearLayout) findViewById(R.id.llContent);
+        SwipeMenuLayout view0 = (SwipeMenuLayout) findViewById(R.id.sml_0);
+        SwipeMenuLayout view1 = (SwipeMenuLayout) findViewById(R.id.sml_1);
+        if (tags != null) {
+            view0.setIos(tags[0]);
+            view0.setLeftSwipe(tags[1]);
+            view0.setSwipeEnable(tags[2]);
+
+            view1.setIos(tags[0]);
+            view1.setLeftSwipe(tags[1]);
+            view1.setSwipeEnable(tags[2]);
+        }
+
         llContent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

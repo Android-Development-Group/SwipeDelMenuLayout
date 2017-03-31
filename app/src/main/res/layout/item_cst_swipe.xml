@@ -2,13 +2,14 @@
 <com.mcxtzhang.swipemenulib.SwipeMenuLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/sml_main"
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:clickable="true"
     android:paddingBottom="1dp"
-    app:ios="false"
+    app:ios="true"
     app:leftSwipe="true"
-    app:swipeEnable="false">
+    app:swipeEnable="true">
 
     <LinearLayout
         android:id="@+id/ll_main"
